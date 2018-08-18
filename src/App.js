@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
       {id: '1ad', name: 'viny', age:60}
     ],
     otherStates : 'will work on it',
-    showPersons : true
+    showPersons : false
   };
 
   changeNameHandler = (event,persId) => {
@@ -48,11 +49,16 @@ class App extends Component {
 
   render() {
     const buttonStyle = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color:'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover':{
+        backgroundColor : 'lightgreen',
+        color:'black'
+      }
 
     };
 
@@ -73,22 +79,30 @@ class App extends Component {
         }
        
       </div> )
+      
+      buttonStyle.backgroundColor = 'red';
+      buttonStyle[':hover'] = {
+        backgroundColor:'salmon',
+        color:'black'
+      }
     }
 
     return (
-      <div className="App">
-        <h1> Hi, I' am a React App </h1>
-        <p> This is working !</p>
-        <button onClick = {this.togglePersonHandler } style={buttonStyle} >
-           Toggle persons
-        </button>
+      <StyleRoot>
+        <div className="App">
+          <h1> Hi, I' am a React App </h1>
+          <p> This is working !</p>
+          <button onClick = {this.togglePersonHandler } style={buttonStyle} >
+            Toggle persons
+          </button>
 
-        {persons} 
-        
-      </div>
+          {persons} 
+          
+        </div>
+      </StyleRoot>
     //React.createElement('div', { className: "App" }, React.createElement('h1', null, 'I will master React'))
     );
   }
 }
 
-export default App;
+export default Radium(App);
