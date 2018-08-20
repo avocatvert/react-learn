@@ -5,4 +5,16 @@
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
+
+   
 }
+
+.Person input {
+    max-width: 80%;
+}
+
+ @media (min-width: 500px) {
+     .Person{
+        width: 450px;
+     }
+    }

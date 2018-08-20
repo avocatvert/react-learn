@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 //import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 
@@ -7,9 +7,9 @@ class App extends Component {
 
   state = {
     persons: [
-      {id: '1ac',name:'romeo', age:32},
-      {id: '1ab', name:'pauline', age:27},
-      {id: '1ad', name: 'viny', age:60}
+      {id: '1ac',name:'romeo', city:'Montreal'},
+      {id: '1ab', name:'pauline', city:'Ottawa'},
+      {id: '1ad', name: 'viny', city:'Yaounde'}
     ],
     otherStates : 'will work on it',
     showPersons : false
@@ -48,17 +48,10 @@ class App extends Component {
 
 
   render() {
-    const buttonStyle = {
-      backgroundColor: 'green',
-      color:'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-
-    };
-
+    
     let persons = null;
+    let btnClass = '';
+
     if (this.state.showPersons) {
       persons = (
       <div>
@@ -67,7 +60,7 @@ class App extends Component {
                     click={() => this.deletePersonHandler(index)} 
                     changedName = {(event) => this.changeNameHandler (event,pers.id) }
                     name = {pers.name} 
-                    age = {pers.age} 
+                    city = {pers.city} 
                     key = {pers.id}
                     />
             } 
@@ -75,16 +68,16 @@ class App extends Component {
         }
        
       </div> )
+      btnClass = classes.Red;
       
-      buttonStyle.backgroundColor = 'red';
     }
 
     return (
    
-        <div className="App">
+        <div className={classes.App} >
           <h1> Hi, I' am a React App </h1>
           <p> This is working !</p>
-          <button onClick = {this.togglePersonHandler } style={buttonStyle} >
+          <button className={btnClass}    onClick = {this.togglePersonHandler}  >
             Toggle persons
           </button>
 
