@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import classes from './App.css';
-//import Radium, {StyleRoot} from 'radium';
-import Person from './Person/Person';
+import Cockpit from '../Cockpit/Cockpit';
+import Persons from '../components/Persons/Persons';
 
 class App extends Component {
 
@@ -48,41 +47,21 @@ class App extends Component {
 
 
   render() {
-    
-    let persons = null;
-    let btnClass = '';
-
-    if (this.state.showPersons) {
-      persons = (
-      <div>
-        { this.state.persons.map( (pers,index) => { 
-            return <Person 
-                    click={() => this.deletePersonHandler(index)} 
-                    changedName = {(event) => this.changeNameHandler (event,pers.id) }
-                    name = {pers.name} 
-                    city = {pers.city} 
-                    key = {pers.id}
-                    />
-            } 
-          )
-        }
-       
-      </div> )
-      btnClass = classes.Red;
-      
-    }
+   
 
     return (
-   
-        <div className={classes.App} >
-          <h1> Hi, I' am a React App </h1>
-          <p> This is working !</p>
-          <button className={btnClass}    onClick = {this.togglePersonHandler}  >
-            Toggle persons
-          </button>
+        <div>
+          <Cockpit 
+            clicked = {this.togglePersonHandler}
+            showPersons = {this.state.showPersons}
+          />
 
-          {persons} 
-          
+          <Persons 
+            showPersons ={this.state.showPersons}
+            persons={this.state.persons} 
+            clicked={this.deletePersonHandler}
+            changed= {this.changeNameHandler}
+          /> 
         </div>
      
     //React.createElement('div', { className: "App" }, React.createElement('h1', null, 'I will master React'))
