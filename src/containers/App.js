@@ -43,7 +43,9 @@ class App extends Component {
     //const persons_ = this.state.persons; // a reference (not a copy)to state.persons (array)
     const persons_ = [...this.state.persons] //or this.state.persons.slice() //will make a copy of the array
     persons_.splice( persIndex,1);
-    this.setState({persons : persons_});
+    this.setState( 
+      () => ({persons : persons_})
+    );
   }
 
 

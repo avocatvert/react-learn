@@ -1,6 +1,8 @@
 import React  from 'react';
 import Styles from './Person.css';
 import WithClass from '../../../hoc/WithClass';
+import PropTypes from 'prop-types';
+
 
 const person = (props) => { 
  
@@ -11,6 +13,14 @@ const person = (props) => {
         <input type='text' onChange={props.changed} value = {props.name}/>
     </WithClass>
     );
+};
+
+
+person.propTypes = {
+    clicked : PropTypes.func,
+    name: PropTypes.string,
+    city: PropTypes.string,
+    changed: PropTypes.func
 };
 
 export default person;
