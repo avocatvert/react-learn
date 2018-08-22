@@ -23,7 +23,7 @@ yarn-error.log*
 
 registerServiceWorker.js
 package-lock.json
-package.json
+#package.json
 
 /config
 /scripts

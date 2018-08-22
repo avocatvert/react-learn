@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cockpit from '../Cockpit/Cockpit';
+import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
 
 class App extends Component {
@@ -52,6 +52,7 @@ class App extends Component {
     return (
         <div>
           <Cockpit 
+            appTitle = {this.props.title}
             clicked = {this.togglePersonHandler}
             showPersons = {this.state.showPersons}
           />
