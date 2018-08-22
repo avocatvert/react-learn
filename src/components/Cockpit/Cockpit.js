@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Cockpit.css';
+import WithClass from '../../hoc/WithClass';
 
 
 const cockpit = (props) => {
@@ -9,13 +10,13 @@ const cockpit = (props) => {
         btnClass = classes.Red;
     }
     return (
-        <div className={classes.Cockpit}>
+        <WithClass classes={classes.Cockpit}>
             <h1> {props.appTitle} </h1>
             <p> This is working !</p>
             <button className={btnClass} onClick={props.clicked}  >
                 Toggle persons
             </button>
-        </div> 
+        </WithClass> 
     )
  
 };

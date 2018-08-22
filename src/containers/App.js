@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
+import Aux from '../hoc/Aux';
 
 class App extends Component {
 
@@ -50,7 +51,7 @@ class App extends Component {
    
 
     return (
-        <div>
+        <Aux>
           <Cockpit 
             appTitle = {this.props.title}
             clicked = {this.togglePersonHandler}
@@ -63,7 +64,7 @@ class App extends Component {
             clicked={this.deletePersonHandler}
             changed= {this.changeNameHandler}
           /> 
-        </div>
+        </Aux>
      
     //React.createElement('div', { className: "App" }, React.createElement('h1', null, 'I will master React'))
     );
