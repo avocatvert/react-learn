@@ -1,13 +1,15 @@
 import React from 'react';
 import classes from './Cockpit.css';
+import Aux from '../../hoc/Aux';
 import WithClass from '../../hoc/WithClass';
+
 
 
 const cockpit = (props) => {
 
-    let btnClass = '';
+    let btnClass = classes.Button;
     if (props.showPersons){
-        btnClass = classes.Red;
+        btnClass = classes.Button +" "+ classes.Red;
     }
     return (
         <WithClass classes={classes.Cockpit}>
